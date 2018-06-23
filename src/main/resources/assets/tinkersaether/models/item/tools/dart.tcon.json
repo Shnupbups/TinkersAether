@@ -1,0 +1,8 @@
+{
+  "textures": {
+    "layer0": "tinkersaether:items/dart/shaft",
+    "layer1": "tinkersaether:items/dart/tip",
+    "layer2": "tinkersaether:items/dart/fletching",
+    "broken0": "tinkersaether:items/dart/shaft_broken"
+  }
+}

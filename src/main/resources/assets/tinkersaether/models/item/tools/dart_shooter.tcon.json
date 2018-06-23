@@ -1,0 +1,19 @@
+{
+  "textures": {
+    "layer0": "tinkersaether:items/dart_shooter/tube",
+    "layer1": "tinkersaether:items/dart_shooter/mouthpiece",
+    "broken0": "tinkersaether:items/dart_shooter/tube_broken"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ 0, -90, -30 ],
+      "translation": [ 0.0, 4.0, 0.0 ],
+      "scale": [ 0.5, 0.5, 0.5 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ 0, 90, 30 ],
+      "translation": [ 0.0, 4.0, 0.0 ],
+      "scale": [ 0.5, 0.5, 0.5 ]
+    }
+  }
+}

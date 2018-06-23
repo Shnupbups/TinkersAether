@@ -1,0 +1,16 @@
+[
+{
+  "modid": "tinkersaether",
+  "name": "Tinker's Aether",
+  "description": "Adds Aether materials and stuff to Tinker's Construct.",
+  "version": "1.0",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Shnupbups"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
