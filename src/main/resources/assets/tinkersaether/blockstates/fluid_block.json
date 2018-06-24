@@ -4,8 +4,8 @@
         "model": "forge:fluid"
     },
     "variants": {
-        "moretic_gravitite": [{
-            "custom": { "fluid": "moretic_gravitite" }
+        "gravitite": [{
+            "custom": { "fluid": "gravitite" }
         }]
     }
 }

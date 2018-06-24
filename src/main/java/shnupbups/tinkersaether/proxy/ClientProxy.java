@@ -87,15 +87,15 @@ public class ClientProxy extends CommonProxy {
     public void initToolGuis() {
         if (ModuleTools.dartShooter != null) {
             ToolBuildGuiInfo dartShooterInfo = new ToolBuildGuiInfo(ModuleTools.dartShooter);
-            dartShooterInfo.addSlotPosition(32 - 9, 41);
-            dartShooterInfo.addSlotPosition(32 + 9, 41);
+            dartShooterInfo.addSlotPosition(32 - 9, 41 - 9);
+            dartShooterInfo.addSlotPosition(32 + 9, 41 + 9);
             TinkerRegistryClient.addToolBuilding(dartShooterInfo);
         }
         if (ModuleTools.dart != null) {
             ToolBuildGuiInfo dartInfo = new ToolBuildGuiInfo(ModuleTools.dart);
             dartInfo.addSlotPosition(32, 41);
-            dartInfo.addSlotPosition(32 + 18, 41 - 18);
-            dartInfo.addSlotPosition(32 - 18, 41 + 18);
+            dartInfo.addSlotPosition(32 - 18, 41 - 18);
+            dartInfo.addSlotPosition(32 + 18, 41 + 18);
             TinkerRegistryClient.addToolBuilding(dartInfo);
         }
     }

@@ -25,7 +25,7 @@ import slimeknights.tconstruct.tools.TinkerMaterials;
 public class TinkersAether {
     public static final String modid = "tinkersaether";
     public static final String name = "MoreTiC";
-    public static final String version = "1.0.0";
+    public static final String version = "1.0.1";
 
     @Mod.Instance(modid)
     public static TinkersAether instance;
