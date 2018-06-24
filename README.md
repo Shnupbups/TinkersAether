@@ -20,3 +20,5 @@ In addition, you can make custom darts much the same you would make other ammuni
 
 ## Future Additions
 In the future, I would like to add Valkyrie tools, but am waiting until I can add a custom 'Valkyrie Ingot' to Silver Dungeon loot. Currently, Aether Legacy does not allow adding new loot to its dungeons.
+I will also add a config option to disable Dart Shooters and Darts, as well as the option to disable each material individually.
+I would like to add support for Construct's Armory as well, with the ability to make Gloves.
