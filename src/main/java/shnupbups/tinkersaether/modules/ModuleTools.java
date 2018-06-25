@@ -6,6 +6,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import shnupbups.tinkersaether.TinkersAether;
+import shnupbups.tinkersaether.config.TAConfig;
 import shnupbups.tinkersaether.tools.ToolDart;
 import shnupbups.tinkersaether.tools.ToolDartShooter;
 import slimeknights.tconstruct.library.TinkerRegistry;
@@ -39,40 +40,44 @@ public class ModuleTools {
     public static void initItems(RegistryEvent.Register<Item> event) {
         TinkersAether.logger.info("Tools Module - Begin ItemInit");
 
-        mouthpiece = new ToolPart(Material.VALUE_Ingot);
-        mouthpiece.setUnlocalizedName("mouthpiece").setRegistryName("mouthpiece");
-        event.getRegistry().register(mouthpiece);
-        TinkerRegistry.registerToolPart(mouthpiece);
-        TinkersAether.proxy.registerToolPartModel(mouthpiece);
-        parts.add(mouthpiece);
+        if(TAConfig.darts) {
+            mouthpiece = new ToolPart(Material.VALUE_Ingot);
+            mouthpiece.setUnlocalizedName("mouthpiece").setRegistryName("mouthpiece");
+            event.getRegistry().register(mouthpiece);
+            TinkerRegistry.registerToolPart(mouthpiece);
+            TinkersAether.proxy.registerToolPartModel(mouthpiece);
+            parts.add(mouthpiece);
 
-        tube = new ToolPart(Material.VALUE_Ingot*3);
-        tube.setUnlocalizedName("tube").setRegistryName("tube");
-        event.getRegistry().register(tube);
-        TinkerRegistry.registerToolPart(tube);
-        TinkersAether.proxy.registerToolPartModel(tube);
-        parts.add(tube);
+            tube = new ToolPart(Material.VALUE_Ingot * 3);
+            tube.setUnlocalizedName("tube").setRegistryName("tube");
+            event.getRegistry().register(tube);
+            TinkerRegistry.registerToolPart(tube);
+            TinkersAether.proxy.registerToolPartModel(tube);
+            parts.add(tube);
 
-        dartTip = new ToolPart(Material.VALUE_Ingot);
-        dartTip.setUnlocalizedName("dart_tip").setRegistryName("dart_tip");
-        event.getRegistry().register(dartTip);
-        TinkerRegistry.registerToolPart(dartTip);
-        TinkersAether.proxy.registerToolPartModel(dartTip);
-        parts.add(dartTip);
+            dartTip = new ToolPart(Material.VALUE_Ingot);
+            dartTip.setUnlocalizedName("dart_tip").setRegistryName("dart_tip");
+            event.getRegistry().register(dartTip);
+            TinkerRegistry.registerToolPart(dartTip);
+            TinkersAether.proxy.registerToolPartModel(dartTip);
+            parts.add(dartTip);
+        }
 
         TinkersAether.logger.info("Tools Module - Parts Registered");
 
-        dartShooter = new ToolDartShooter();
-        event.getRegistry().register(dartShooter);
-        TinkerRegistry.registerToolForgeCrafting(dartShooter);
-        TinkersAether.proxy.registerToolModel(dartShooter);
-        tools.add(dartShooter);
+        if(TAConfig.darts) {
+            dartShooter = new ToolDartShooter();
+            event.getRegistry().register(dartShooter);
+            TinkerRegistry.registerToolForgeCrafting(dartShooter);
+            TinkersAether.proxy.registerToolModel(dartShooter);
+            tools.add(dartShooter);
 
-        dart = new ToolDart();
-        event.getRegistry().register(dart);
-        TinkerRegistry.registerToolForgeCrafting(dart);
-        TinkersAether.proxy.registerToolModel(dart);
-        tools.add(dart);
+            dart = new ToolDart();
+            event.getRegistry().register(dart);
+            TinkerRegistry.registerToolForgeCrafting(dart);
+            TinkersAether.proxy.registerToolModel(dart);
+            tools.add(dart);
+        }
 
         TinkersAether.logger.info("Tools Module - Tools Registered");
 

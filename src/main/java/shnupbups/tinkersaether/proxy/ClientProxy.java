@@ -13,6 +13,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import shnupbups.tinkersaether.TinkersAether;
+import shnupbups.tinkersaether.config.TAConfig;
 import shnupbups.tinkersaether.entities.EntityDart;
 import shnupbups.tinkersaether.modules.ModuleTools;
 import shnupbups.tinkersaether.render.RenderDart;
@@ -64,7 +65,9 @@ public class ClientProxy extends CommonProxy {
         super.registerModels();
 
         // entities
-        RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, RenderDart::new);
+        if(TAConfig.darts) {
+            RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, RenderDart::new);
+        }
         TinkersAether.logger.info("Aether Tools Module - Models Registered");
     }
 
@@ -85,18 +88,20 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void initToolGuis() {
-        if (ModuleTools.dartShooter != null) {
-            ToolBuildGuiInfo dartShooterInfo = new ToolBuildGuiInfo(ModuleTools.dartShooter);
-            dartShooterInfo.addSlotPosition(32 - 9, 41 - 9);
-            dartShooterInfo.addSlotPosition(32 + 9, 41 + 9);
-            TinkerRegistryClient.addToolBuilding(dartShooterInfo);
-        }
-        if (ModuleTools.dart != null) {
-            ToolBuildGuiInfo dartInfo = new ToolBuildGuiInfo(ModuleTools.dart);
-            dartInfo.addSlotPosition(32, 41);
-            dartInfo.addSlotPosition(32 - 18, 41 - 18);
-            dartInfo.addSlotPosition(32 + 18, 41 + 18);
-            TinkerRegistryClient.addToolBuilding(dartInfo);
+        if(TAConfig.darts) {
+            if (ModuleTools.dartShooter != null) {
+                ToolBuildGuiInfo dartShooterInfo = new ToolBuildGuiInfo(ModuleTools.dartShooter);
+                dartShooterInfo.addSlotPosition(32 - 9, 41 - 9);
+                dartShooterInfo.addSlotPosition(32 + 9, 41 + 9);
+                TinkerRegistryClient.addToolBuilding(dartShooterInfo);
+            }
+            if (ModuleTools.dart != null) {
+                ToolBuildGuiInfo dartInfo = new ToolBuildGuiInfo(ModuleTools.dart);
+                dartInfo.addSlotPosition(32, 41);
+                dartInfo.addSlotPosition(32 - 18, 41 - 18);
+                dartInfo.addSlotPosition(32 + 18, 41 + 18);
+                TinkerRegistryClient.addToolBuilding(dartInfo);
+            }
         }
     }
 

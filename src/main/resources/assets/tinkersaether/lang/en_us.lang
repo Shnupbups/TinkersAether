@@ -25,3 +25,5 @@ modifier.rooted.desc=§oFirst ones double.§r\nExtra drops from naturally genera
 modifier.zany.name=Zany
 modifier.zany.desc=§oEntropy powered speed.§r\nThe tool mines considerably faster as it wears out.
 modifier.zany.extra=Zany Speed: x%s
+
+tinkersaether.config.title=Tinker's Aether Configuration

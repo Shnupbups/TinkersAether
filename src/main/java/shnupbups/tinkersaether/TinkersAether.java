@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import shnupbups.tinkersaether.config.TAConfig;
 import shnupbups.tinkersaether.entities.EntityDart;
 import shnupbups.tinkersaether.misc.MiscUtils;
 import shnupbups.tinkersaether.modules.ModuleBase;
@@ -25,7 +26,7 @@ import slimeknights.tconstruct.tools.TinkerMaterials;
 public class TinkersAether {
     public static final String modid = "tinkersaether";
     public static final String name = "MoreTiC";
-    public static final String version = "1.0.1";
+    public static final String version = "1.0.2";
 
     @Mod.Instance(modid)
     public static TinkersAether instance;
@@ -49,11 +50,17 @@ public class TinkersAether {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        proxy.initToolGuis();
+        logger.info(TAConfig.getConfig());
+
+        if(TAConfig.darts) {
+            proxy.initToolGuis();
+        }
 
         ModuleBase.aether.init();
 
-        MiscUtils.displace(TinkerMaterials.wood.getIdentifier()); // Skyroot needs priority
+        if(TAConfig.skyroot) {
+            MiscUtils.displace(TinkerMaterials.wood.getIdentifier()); // Skyroot needs priority
+        }
     }
 
     @Mod.EventHandler
@@ -63,7 +70,9 @@ public class TinkersAether {
 
     @SubscribeEvent
     public void registerEntities(RegistryEvent.Register<EntityEntry> event) {
-        EntityRegistry.registerModEntity(new ResourceLocation(TinkersAether.modid,"dart"), EntityDart.class, "dart",13, TinkersAether.instance, 64, 1, false);
+        if(TAConfig.darts) {
+            EntityRegistry.registerModEntity(new ResourceLocation(TinkersAether.modid,"dart"), EntityDart.class, "dart",13, TinkersAether.instance, 64, 1, false);
+        }
         TinkersAether.logger.info("Aether Tools Module - Entities Registered");
     }
 
