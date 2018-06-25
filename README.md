@@ -5,12 +5,14 @@ Tinker's Aether is an addon for Tinker's Construct which adds support for materi
 ## Materials
 Current materials include:
 <ul>
-<li>Skyroot</li>
-<li>Holystone</li>
-<li>Zanite</li>
-<li>Gravitite</li>
+  <li>Skyroot</li>
+  <li>Holystone</li>
+  <li>Zanite</li>
+  <li>Gravitite</li>
+  <li>Golden Amber</li>
 </ul>
 Each of these has traits somewhat equivalent to the abilities already existent in their respective tools in Aether Legacy.<br>
+This is, of course, with the exception of Golden Amber, which does not have tools in Aether Legacy. Golden Amber does large damage, but is horrible for mining and durability.<br>
 They can be individually disabled in the config as of Version 1.0.2.
 
 ## Dart Shooter
