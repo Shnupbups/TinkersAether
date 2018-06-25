@@ -30,7 +30,7 @@ public class ModuleBase {
 
     public static final Material skyroot = Materials.mat("skyroot", 0x6C633E);
     public static final Material holystone = Materials.mat("holystone", 0xA8AAA8);
-    public static final Material goldenAmber = Materials.mat("goldenamber", 0xFFDD11);
+    public static final Material goldenAmber = Materials.mat("goldenamber", 0xFFDF1A);
     public static final Material zanite = Materials.mat("zanite", 0x6611DD);
     public static final Material gravitite = Materials.mat("gravitite", 0xCC55AA);
     public static final Material valkyrie = Materials.mat("valkyrie", 0xEEEEDD);
@@ -97,9 +97,23 @@ public class ModuleBase {
             gravitite.addItem("blockEnchantedGravitite", 1, Material.VALUE_Ingot);
             gravitite.addTrait(Antigrav.antigrav, MaterialTypes.HEAD);
             gravitite.addTrait(Launching.launching, MaterialTypes.HEAD);
+            gravitite.addTrait(Gilded.gilded, MaterialTypes.HEAD);
             gravitite.addTrait(Launching.launching);
             MaterialIntegration gravititeMi = new MaterialIntegration(null, gravitite, FluidHelper.createFluid(gravitite, 900), null).setRepresentativeItem("blockEnchantedGravitite");
             TinkerRegistry.integrate(gravititeMi).preInit();
+        }
+
+        if(TAConfig.goldenamber) {
+            TinkerRegistry.addMaterialStats(goldenAmber,
+                    new HeadMaterialStats(300, 1.50f, 7.20f, STONE),
+                    new HandleMaterialStats(0.7f, 40),
+                    new ExtraMaterialStats(30),
+                    TinkersAether.plzNo);
+            goldenAmber.setCraftable(true).setCastable(false);
+            goldenAmber.addItem("gemGoldenAmber", 1, Material.VALUE_Ingot);
+            goldenAmber.addTrait(Gilded.gilded);
+            MaterialIntegration goldenAmberMi = new MaterialIntegration(goldenAmber).setRepresentativeItem("gemGoldenAmber");
+            TinkerRegistry.integrate(goldenAmberMi).preInit();
         }
 
         TinkersAether.logger.info("Base Module - Materials Registered");

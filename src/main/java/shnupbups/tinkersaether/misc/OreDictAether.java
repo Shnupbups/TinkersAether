@@ -13,5 +13,6 @@ public class OreDictAether {
         OreDictionary.registerOre("logSkyroot",new ItemStack(BlocksAether.aether_log,1,1));
         OreDictionary.registerOre("stickSkyroot", ItemsAether.skyroot_stick);
         OreDictionary.registerOre("holystone",BlocksAether.holystone);
+        OreDictionary.registerOre("gemGoldenAmber",ItemsAether.golden_amber);
     }
 }

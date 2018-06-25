@@ -3,7 +3,7 @@
   "modid": "tinkersaether",
   "name": "Tinker's Aether",
   "description": "Adds Aether materials and stuff to Tinker's Construct.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",

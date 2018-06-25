@@ -28,6 +28,14 @@ public class TAConfig extends Configuration {
     @Config.RequiresMcRestart
     public static boolean gravitite = true;
 
+    @Config.Comment("Whether Golden Amber is enabled or not.")
+    @Config.RequiresMcRestart
+    public static boolean goldenamber = true;
+
+    /*@Config.Comment("Whether Valkyrie is enabled or not.")
+    @Config.RequiresMcRestart
+    public static boolean valkyrie = true;*/
+
     @Config.Comment("Whether Darts and Dart Shooters are enabled or not.")
     @Config.RequiresMcRestart
     public static boolean darts = true;
