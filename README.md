@@ -11,7 +11,7 @@ Current materials include:
   <li>Gravitite</li>
   <li>Golden Amber (as of 1.0.3)</li>
   <li>Valkyrie Metal (as of 1.1.0)</li>
-  <li>Swet</li>
+  <li>Swet (as of 1.1.0)</li>
 </ul>
 Each of these that have corresponding tools in Aether Legacy have traits somewhat equivalent to the abilities already existent in those.
 
