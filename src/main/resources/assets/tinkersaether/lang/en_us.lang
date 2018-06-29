@@ -4,6 +4,7 @@ material.skyroot.name=Skyroot
 material.holystone.name=Holystone
 material.goldenamber.name=Golden Amber
 material.valkyrie.name=Valkyrie
+material.swet.name=Swet
 
 fluid.gravitite.name=Molten Gravitite
 fluid.valkyrie.name=Molten Valkyrie Metal
@@ -16,6 +17,12 @@ item.dart.desc=The Darts are the ammo used for Dart Shooters. One stack provides
 item.tube.name=Tube
 item.mouthpiece.name=Mouthpiece
 item.dart_tip.name=Dart Tip
+
+item.swet_crystal.name=Swet Crystal
+
+item.valkyrie_nugget.name=Valkyrie Metal Nugget
+item.valkyrie_ingot.name=Valkyrie Metal Ingot
+tile.valkyrie_block.name=Block of Valkyrie Metal
 
 modifier.antigrav.name=Antigravity
 modifier.antigrav.desc=§oScrew gravity!§r\nMake effective blocks float when you shift+rclick, using 4 durability.
@@ -30,5 +37,9 @@ modifier.zany.desc=§oEntropy powered speed.§r\nThe tool mines considerably fas
 modifier.zany.extra=Zany Speed: x%s
 modifier.gilded.name=Gilded
 modifier.gilded.desc=§oShiny sap!§r\nGolden Amber can be harvested from Golden Oak logs.
+modifier.reach.name=Reach
+modifier.reach.desc=§oAngelic arms!§r\nWhilst holding this tool, you can reach further.
+modifier.swetty.name=Swetty
+modifier.swetty.desc=§oEww, gooey!§r\nIt'll wash off.
 
 tinkersaether.config.title=Tinker's Aether Configuration

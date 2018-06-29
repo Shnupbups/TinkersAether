@@ -5,7 +5,7 @@ import com.legacy.aether.items.ItemsAether;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class OreDictAether {
+public class OreDict {
 
     public static void register() {
         OreDictionary.registerOre("plankSkyroot", BlocksAether.skyroot_plank);
@@ -14,5 +14,7 @@ public class OreDictAether {
         OreDictionary.registerOre("stickSkyroot", ItemsAether.skyroot_stick);
         OreDictionary.registerOre("holystone",BlocksAether.holystone);
         OreDictionary.registerOre("gemGoldenAmber",ItemsAether.golden_amber);
+        OreDictionary.registerOre("slimeball",ItemsAether.swetty_ball);
+        OreDictionary.registerOre("slimeballSwet",ItemsAether.swetty_ball);
     }
 }

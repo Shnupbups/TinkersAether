@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "valkyrie",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "tinkersaether:valkyrie_block"
+    }
+  },
+  "result": {
+    "item": "tinkersaether:valkyrie_ingot",
+    "count": 9
+  }
+}

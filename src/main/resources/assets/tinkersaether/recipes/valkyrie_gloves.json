@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "tinkersaether:valkyrie_ingot"
+    }
+  },
+  "result": {
+    "item": "aether_legacy:valkyrie_gloves"
+  }
+}

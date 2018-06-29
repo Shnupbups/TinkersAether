@@ -37,7 +37,7 @@ public class ModuleTools {
     public static final List<IToolPart> parts = new ArrayList<>();
 
     @SubscribeEvent
-    public static void initItems(RegistryEvent.Register<Item> event) {
+    public static void registerItems(RegistryEvent.Register<Item> event) {
         TinkersAether.logger.info("Tools Module - Begin ItemInit");
 
         if(TAConfig.darts) {

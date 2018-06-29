@@ -1,16 +1,24 @@
 package shnupbups.tinkersaether.modules;
 
+import com.legacy.aether.items.ItemsAether;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import shnupbups.tinkersaether.Materials;
 import shnupbups.tinkersaether.TinkersAether;
+import shnupbups.tinkersaether.blocks.TABlock;
 import shnupbups.tinkersaether.config.TAConfig;
 import shnupbups.tinkersaether.fluids.FluidHelper;
+import shnupbups.tinkersaether.items.TAItem;
 import shnupbups.tinkersaether.misc.MiscUtils;
-import shnupbups.tinkersaether.misc.OreDictAether;
+import shnupbups.tinkersaether.misc.OreDict;
 import shnupbups.tinkersaether.traits.*;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
@@ -21,6 +29,7 @@ import slimeknights.tconstruct.tools.TinkerTools;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 import static slimeknights.tconstruct.tools.TinkerTraits.*;
 
+@Mod.EventBusSubscriber(modid = TinkersAether.modid)
 public class ModuleBase {
     public static ModuleBase aether = new ModuleBase();
 
@@ -30,10 +39,17 @@ public class ModuleBase {
 
     public static final Material skyroot = Materials.mat("skyroot", 0x6C633E);
     public static final Material holystone = Materials.mat("holystone", 0xA8AAA8);
-    public static final Material goldenAmber = Materials.mat("goldenamber", 0xFFDF1A);
+    public static final Material goldenAmber = Materials.mat("goldenamber", 0xFFE41C);
     public static final Material zanite = Materials.mat("zanite", 0x6611DD);
     public static final Material gravitite = Materials.mat("gravitite", 0xCC55AA);
     public static final Material valkyrie = Materials.mat("valkyrie", 0xEEEEDD);
+    public static final Material swet = Materials.mat("swet", 0x29A6D9);
+
+    public static final TAItem valkyrieIngot = new TAItem("valkyrie_ingot");
+    public static final TAItem valkyrieNugget = new TAItem("valkyrie_nugget");
+    public static final TABlock valkyrieBlock = new TABlock("valkyrie_block", net.minecraft.block.material.Material.IRON);
+
+    public static final TAItem swetCrystal = new TAItem("swet_crystal");
 
     public void preInit() {
         TinkersAether.logger.info("Base Module - Begin PreInit");
@@ -116,6 +132,40 @@ public class ModuleBase {
             TinkerRegistry.integrate(goldenAmberMi).preInit();
         }
 
+        if(TAConfig.valkyrie) {
+            TinkerRegistry.addMaterialStats(valkyrie,
+                    new HeadMaterialStats(1000, 8.0f, 7.00f, COBALT),
+                    new HandleMaterialStats(1.0f, 80),
+                    new ExtraMaterialStats(70),
+                    TinkersAether.plzNo);
+            valkyrie.setCraftable(false).setCastable(true);
+            valkyrie.addItem("blockValkyrie", 1, Material.VALUE_Block);
+            valkyrie.addItem(valkyrieBlock, Material.VALUE_Block);
+            valkyrie.addItem("ingotValkryie", 1, Material.VALUE_Ingot);
+            valkyrie.addItem(valkyrieIngot, 1, Material.VALUE_Ingot);
+            valkyrie.addItem("nuggetValkryie", 1, Material.VALUE_Nugget);
+            valkyrie.addItem(valkyrieNugget, 1, Material.VALUE_Nugget);
+            valkyrie.addTrait(Gilded.gilded, MaterialTypes.HEAD);
+            valkyrie.addTrait(Reach.reach, MaterialTypes.HEAD);
+            valkyrie.addTrait(Reach.reach);
+            MaterialIntegration valkyrieMi = new MaterialIntegration(null, valkyrie, FluidHelper.createFluid(valkyrie, 1000), "Valkyrie");
+            TinkerRegistry.integrate(valkyrieMi).preInit();
+        }
+
+        if(TAConfig.swet) {
+            TinkerRegistry.addMaterialStats(swet,
+                    new HeadMaterialStats(1100, 4.5f, 2.0f, STONE),
+                    new HandleMaterialStats(0.7f, -100),
+                    new ExtraMaterialStats(360),
+                    new BowMaterialStats(1.0f, 1.5f, 0.5f));
+            swet.setCraftable(true).setCastable(false);
+            swet.addItem("slimecrystalSwet", 1, Material.VALUE_Ingot);
+            swet.addItem(swetCrystal, 1, Material.VALUE_Ingot);
+            swet.addTrait(Swetty.swetty);
+            MaterialIntegration swetMi = new MaterialIntegration(swet).setRepresentativeItem("slimecrystalSwet");
+            TinkerRegistry.integrate(swetMi).preInit();
+        }
+
         TinkersAether.logger.info("Base Module - Materials Registered");
 
         TinkersAether.logger.info("Base Module - End PreInit");
@@ -124,13 +174,20 @@ public class ModuleBase {
     public void init() {
         TinkersAether.logger.info("Base Module - Begin Init");
 
-        OreDictAether.register();
+        OreDict.register();
 
         TinkersAether.logger.info("Base Module - OreDict Registered");
 
         if(TAConfig.gravitite) {
             TinkerRegistry.registerMelting("blockEnchantedGravitite", gravitite.getFluid(), Material.VALUE_Ingot);
             TinkerRegistry.registerBasinCasting(new CastingRecipe(MiscUtils.stackFromOreDict("blockEnchantedGravitite"), gravitite.getFluid(), Material.VALUE_Ingot, 180));
+        }
+
+        if(TAConfig.valkyrie) {
+            TinkerRegistry.registerMelting(ItemsAether.valkyrie_boots, valkyrie.getFluid(), Material.VALUE_Ingot*4);
+            TinkerRegistry.registerMelting(ItemsAether.valkyrie_chestplate, valkyrie.getFluid(), Material.VALUE_Ingot*8);
+            TinkerRegistry.registerMelting(ItemsAether.valkyrie_helmet, valkyrie.getFluid(), Material.VALUE_Ingot*5);
+            TinkerRegistry.registerMelting(ItemsAether.valkyrie_leggings, valkyrie.getFluid(), Material.VALUE_Ingot*7);
         }
 
         TinkersAether.logger.info("Base Module - Gravitite Stuffs Registered");
@@ -144,6 +201,44 @@ public class ModuleBase {
         if(TAConfig.gravititeForge) {
             TinkerTools.registerToolForgeBlock(registry, "blockEnchantedGravitite");
         }
+        if(TAConfig.valkyrie && TAConfig.valkyrieForge) {
+            TinkerTools.registerToolForgeBlock(registry, "blockValkyrie");
+        }
         TinkersAether.logger.info("Base Module - Recipes Registered");
+    }
+
+    @SubscribeEvent
+    public static void registerItems(RegistryEvent.Register<Item> event) {
+        IForgeRegistry<Item> registry = event.getRegistry();
+        if(TAConfig.valkyrie) {
+            registry.register(valkyrieIngot);
+            registry.register(valkyrieNugget);
+            Item valkBlock = new ItemBlock(valkyrieBlock).setRegistryName(valkyrieBlock.getRegistryName()).setUnlocalizedName(valkyrieBlock.getUnlocalizedName());
+            registry.register(valkBlock);
+            TinkersAether.proxy.registerItemRenderer(valkyrieIngot, 0, "valkyrie_ingot");
+            TinkersAether.proxy.registerItemRenderer(valkyrieNugget, 0, "valkyrie_nugget");
+            TinkersAether.proxy.registerItemRenderer(valkBlock,0,"valkyrie_block");
+            OreDictionary.registerOre("ingotValkyrie",valkyrieIngot);
+            OreDictionary.registerOre("nuggetValkyrie",valkyrieNugget);
+            OreDictionary.registerOre("blockValkyrie",valkyrieBlock);
+        }
+        if(TAConfig.swet) {
+            registry.register(swetCrystal);
+            TinkersAether.proxy.registerItemRenderer(swetCrystal, 0, "swet_crystal");
+            OreDictionary.registerOre("slimecrystal",swetCrystal);
+            OreDictionary.registerOre("slimecrystalSwet",swetCrystal);
+        }
+        TinkersAether.logger.info("Base Module - Items Registered");
+    }
+
+    @SubscribeEvent
+    public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        IForgeRegistry<Block> registry = event.getRegistry();
+        if(TAConfig.valkyrie) {
+            valkyrieBlock.setHarvestLevel("pickaxe",3);
+            valkyrieBlock.setHardness(4.0f);
+            registry.register(valkyrieBlock);
+        }
+        TinkersAether.logger.info("Base Module - Blocks Registered");
     }
 }

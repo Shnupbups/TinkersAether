@@ -26,7 +26,7 @@ import slimeknights.tconstruct.tools.TinkerMaterials;
 public class TinkersAether {
     public static final String modid = "tinkersaether";
     public static final String name = "MoreTiC";
-    public static final String version = "1.0.3";
+    public static final String version = "1.1.0";
 
     @Mod.Instance(modid)
     public static TinkersAether instance;
@@ -50,8 +50,6 @@ public class TinkersAether {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        logger.info(TAConfig.getConfig());
-
         if(TAConfig.darts) {
             proxy.initToolGuis();
         }

@@ -32,9 +32,13 @@ public class TAConfig extends Configuration {
     @Config.RequiresMcRestart
     public static boolean goldenamber = true;
 
-    /*@Config.Comment("Whether Valkyrie is enabled or not.")
+    @Config.Comment("Whether Valkyrie Metal is enabled or not.")
     @Config.RequiresMcRestart
-    public static boolean valkyrie = true;*/
+    public static boolean valkyrie = true;
+
+    @Config.Comment("Whether Swet is enabled or not.")
+    @Config.RequiresMcRestart
+    public static boolean swet = true;
 
     @Config.Comment("Whether Darts and Dart Shooters are enabled or not.")
     @Config.RequiresMcRestart
@@ -44,6 +48,10 @@ public class TAConfig extends Configuration {
     @Config.RequiresMcRestart
     public static boolean gravititeForge = true;
 
+    @Config.Comment("Whether Valkyrie Metal (if enabled) can be used to make a tool forge.")
+    @Config.RequiresMcRestart
+    public static boolean valkyrieForge = true;
+
     @Mod.EventBusSubscriber(modid = TinkersAether.modid)
     private static class EventHandler {
         @SubscribeEvent
@@ -52,9 +60,5 @@ public class TAConfig extends Configuration {
                 ConfigManager.sync(TinkersAether.modid, Config.Type.INSTANCE);
             }
         }
-    }
-
-    public static String getConfig() {
-        return "Skyroot: "+skyroot+" Holystone: "+holystone+" Zanite: "+zanite+" Gravitite: "+gravitite+" Darts: "+darts+" GravititeForge: "+gravititeForge;
     }
 }

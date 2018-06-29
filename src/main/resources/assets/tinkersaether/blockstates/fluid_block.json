@@ -6,6 +6,9 @@
     "variants": {
         "gravitite": [{
             "custom": { "fluid": "gravitite" }
+        }],
+        "valkyrie": [{
+            "custom": { "fluid": "valkyrie"}
         }]
     }
 }
