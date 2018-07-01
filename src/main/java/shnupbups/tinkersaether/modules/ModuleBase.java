@@ -1,6 +1,5 @@
 package shnupbups.tinkersaether.modules;
 
-import com.legacy.aether.items.ItemsAether;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -31,7 +30,7 @@ import static slimeknights.tconstruct.tools.TinkerTraits.*;
 
 @Mod.EventBusSubscriber(modid = TinkersAether.modid)
 public class ModuleBase {
-    public static ModuleBase aether = new ModuleBase();
+    public static ModuleBase base = new ModuleBase();
 
     public ModuleBase() {
         MinecraftForge.EVENT_BUS.register(this);
@@ -178,21 +177,15 @@ public class ModuleBase {
 
         TinkersAether.logger.info("Base Module - OreDict Registered");
 
+        TinkersAether.logger.info("Base Module - End Init");
+    }
+
+    public void postInit() {
         if(TAConfig.gravitite) {
             TinkerRegistry.registerMelting("blockEnchantedGravitite", gravitite.getFluid(), Material.VALUE_Ingot);
             TinkerRegistry.registerBasinCasting(new CastingRecipe(MiscUtils.stackFromOreDict("blockEnchantedGravitite"), gravitite.getFluid(), Material.VALUE_Ingot, 180));
+            TinkersAether.logger.info("Base Module - Gravitite Stuffs Registered");
         }
-
-        if(TAConfig.valkyrie) {
-            TinkerRegistry.registerMelting(ItemsAether.valkyrie_boots, valkyrie.getFluid(), Material.VALUE_Ingot*4);
-            TinkerRegistry.registerMelting(ItemsAether.valkyrie_chestplate, valkyrie.getFluid(), Material.VALUE_Ingot*8);
-            TinkerRegistry.registerMelting(ItemsAether.valkyrie_helmet, valkyrie.getFluid(), Material.VALUE_Ingot*5);
-            TinkerRegistry.registerMelting(ItemsAether.valkyrie_leggings, valkyrie.getFluid(), Material.VALUE_Ingot*7);
-        }
-
-        TinkersAether.logger.info("Base Module - Gravitite Stuffs Registered");
-
-        TinkersAether.logger.info("Base Module - End Init");
     }
 
     @SubscribeEvent

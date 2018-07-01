@@ -10,14 +10,19 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import shnupbups.tinkersaether.config.TAConfig;
 import shnupbups.tinkersaether.entities.EntityDart;
 import shnupbups.tinkersaether.misc.MiscUtils;
 import shnupbups.tinkersaether.modules.ModuleBase;
+import shnupbups.tinkersaether.network.HandlerExtendedAttack;
+import shnupbups.tinkersaether.network.MessageExtendedAttack;
 import shnupbups.tinkersaether.proxy.CommonProxy;
 import slimeknights.tconstruct.library.materials.BowMaterialStats;
 import slimeknights.tconstruct.tools.TinkerMaterials;
@@ -26,13 +31,15 @@ import slimeknights.tconstruct.tools.TinkerMaterials;
 public class TinkersAether {
     public static final String modid = "tinkersaether";
     public static final String name = "MoreTiC";
-    public static final String version = "1.1.0";
+    public static final String version = "1.1.1";
 
     @Mod.Instance(modid)
     public static TinkersAether instance;
 
     @SidedProxy(serverSide = "shnupbups.tinkersaether.proxy.CommonProxy", clientSide = "shnupbups.tinkersaether.proxy.ClientProxy")
     public static CommonProxy proxy;
+
+    public static SimpleNetworkWrapper network = NetworkRegistry.INSTANCE.newSimpleChannel(modid+"network");
 
     public static final Logger logger = LogManager.getLogger(modid);
 
@@ -45,16 +52,19 @@ public class TinkersAether {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        ModuleBase.aether.preInit();
+        ModuleBase.base.preInit();
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
+        int packet = 0;
+        network.registerMessage(HandlerExtendedAttack.class,MessageExtendedAttack.class, packet++, Side.SERVER);
+
         if(TAConfig.darts) {
             proxy.initToolGuis();
         }
 
-        ModuleBase.aether.init();
+        ModuleBase.base.init();
 
         if(TAConfig.skyroot) {
             MiscUtils.displace(TinkerMaterials.wood.getIdentifier()); // Skyroot needs priority
@@ -63,7 +73,7 @@ public class TinkersAether {
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-
+        ModuleBase.base.postInit();
     }
 
     @SubscribeEvent
