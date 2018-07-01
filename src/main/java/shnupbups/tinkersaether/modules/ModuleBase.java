@@ -43,6 +43,10 @@ public class ModuleBase {
     public static final Material gravitite = Materials.mat("gravitite", 0xCC55AA);
     public static final Material valkyrie = Materials.mat("valkyrie", 0xEEEEDD);
     public static final Material swet = Materials.mat("swet", 0x29A6D9);
+    public static final Material candycane = Materials.mat("candycane", 0xFF3333);
+    public static final Material aercloudBlue = Materials.mat("aercloudBlue", 0x99B2C2);
+    public static final Material aercloudCold = Materials.mat("aercloudCold", 0xAAAAAA);
+    public static final Material aercloudGold = Materials.mat("aercloudGold", 0xFFF1A1);
 
     public static final TAItem valkyrieIngot = new TAItem("valkyrie_ingot");
     public static final TAItem valkyrieNugget = new TAItem("valkyrie_nugget");
@@ -163,6 +167,61 @@ public class ModuleBase {
             swet.addTrait(Swetty.swetty);
             MaterialIntegration swetMi = new MaterialIntegration(swet).setRepresentativeItem("slimecrystalSwet");
             TinkerRegistry.integrate(swetMi).preInit();
+        }
+
+        if(TAConfig.candycane) {
+            TinkerRegistry.addMaterialStats(candycane,
+                    new HeadMaterialStats(250, 2.5f, 5.0f, STONE),
+                    new HandleMaterialStats(1.2f, -120),
+                    new ExtraMaterialStats(120),
+                    TinkersAether.plzNo);
+            candycane.setCraftable(true).setCastable(false);
+            candycane.addItem("candyCane", 1, Material.VALUE_Ingot);
+            candycane.addTrait(Festive.festive);
+            candycane.addTrait(tasty);
+            MaterialIntegration candycaneMi = new MaterialIntegration(candycane).setRepresentativeItem("candyCane");
+            TinkerRegistry.integrate(candycaneMi).preInit();
+        }
+
+        if(TAConfig.aercloudCold) {
+            TinkerRegistry.addMaterialStats(aercloudCold,
+                    new HeadMaterialStats(2000, 0.5f, 0.0f, STONE),
+                    new HandleMaterialStats(0.2f, -500),
+                    new ExtraMaterialStats(0),
+                    TinkersAether.plzNo);
+            aercloudCold.setCraftable(true).setCastable(false);
+            aercloudCold.addItem("aercloudCold", 1, Material.VALUE_Ingot);
+            aercloudCold.addTrait(Cushy.cushy);
+            MaterialIntegration aercloudColdMi = new MaterialIntegration(aercloudCold).setRepresentativeItem("aercloudCold");
+            TinkerRegistry.integrate(aercloudColdMi).preInit();
+        }
+
+        if(TAConfig.aercloudBlue) {
+            TinkerRegistry.addMaterialStats(aercloudBlue,
+                    new HeadMaterialStats(2000, 0.5f, 0.0f, STONE),
+                    new HandleMaterialStats(0.2f, -500),
+                    new ExtraMaterialStats(0),
+                    TinkersAether.plzNo);
+            aercloudBlue.setCraftable(true).setCastable(false);
+            aercloudBlue.addItem("aercloudBlue", 1, Material.VALUE_Ingot);
+            aercloudBlue.addTrait(Cushy.cushy);
+            aercloudBlue.addTrait(Cushy.cushy, MaterialTypes.HEAD);
+            aercloudBlue.addTrait(Launching.launching, MaterialTypes.HEAD);
+            MaterialIntegration aercloudBlueMi = new MaterialIntegration(aercloudBlue).setRepresentativeItem("aercloudBlue");
+            TinkerRegistry.integrate(aercloudBlueMi).preInit();
+        }
+
+        if(TAConfig.aercloudGold) {
+            TinkerRegistry.addMaterialStats(aercloudGold,
+                    new HeadMaterialStats(2500, 1.0f, 0.1f, STONE),
+                    new HandleMaterialStats(0.25f, -400),
+                    new ExtraMaterialStats(20),
+                    TinkersAether.plzNo);
+            aercloudGold.setCraftable(true).setCastable(false);
+            aercloudGold.addItem("aercloudGold", 1, Material.VALUE_Ingot);
+            aercloudGold.addTrait(Cushy.cushy);
+            MaterialIntegration aercloudGoldMi = new MaterialIntegration(aercloudGold).setRepresentativeItem("aercloudGold");
+            TinkerRegistry.integrate(aercloudGoldMi).preInit();
         }
 
         TinkersAether.logger.info("Base Module - Materials Registered");

@@ -1,6 +1,6 @@
 {
   "type": "block",
   "parameters": {
-    "texture": "tinkersaether:blocks/valkyrie_block"
+    "texture": "tinkersaether:materials/valkyrie"
   }
 }

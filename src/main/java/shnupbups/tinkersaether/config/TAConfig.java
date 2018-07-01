@@ -40,6 +40,22 @@ public class TAConfig extends Configuration {
     @Config.RequiresMcRestart
     public static boolean swet = true;
 
+    @Config.Comment("Whether Candy Cane is enabled or not.")
+    @Config.RequiresMcRestart
+    public static boolean candycane = true;
+
+    @Config.Comment("Whether Blue Aercloud is enabled or not.")
+    @Config.RequiresMcRestart
+    public static boolean aercloudBlue = true;
+
+    @Config.Comment("Whether Cold Aercloud is enabled or not.")
+    @Config.RequiresMcRestart
+    public static boolean aercloudCold = true;
+
+    @Config.Comment("Whether Gold Aercloud is enabled or not.")
+    @Config.RequiresMcRestart
+    public static boolean aercloudGold = true;
+
     @Config.Comment("Whether Darts and Dart Shooters are enabled or not.")
     @Config.RequiresMcRestart
     public static boolean darts = true;

@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -20,11 +21,20 @@ import java.util.UUID;
 public class Reach extends AbstractTrait {
     public static final Reach reach = new Reach();
 
-    public static final AttributeModifier reachModifier = new AttributeModifier(UUID.randomUUID(), "Tinkers Aether Reach Modifier", 5.0D, 0);
+    public static final AttributeModifier reachModifier = new AttributeModifier(UUID.fromString("df6eabe7-6947-4a56-9099-002f90370708"), "Tinkers Aether Reach Modifier", 5.0D, 0);
 
     public Reach() {
         super("reach",0xEEEEDD);
         MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    //Made a mistake in previous versions... this should fix it!
+    @SubscribeEvent
+    public void onPlayerJoin(EntityJoinWorldEvent event) {
+        if ((event.getEntity() instanceof EntityPlayer)) {
+            EntityPlayer player = (EntityPlayer) event.getEntity();
+            player.getEntityAttribute(EntityPlayer.REACH_DISTANCE).removeAllModifiers();
+        }
     }
 
     @SubscribeEvent

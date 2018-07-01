@@ -5,6 +5,10 @@ material.holystone.name=Holystone
 material.goldenamber.name=Golden Amber
 material.valkyrie.name=Valkyrie
 material.swet.name=Swet
+material.candycane.name=Candy Cane
+material.aercloudblue.name=Blue Aercloud
+material.aercloudcold.name=Cold Aercloud
+material.aercloudgold.name=Golden Aercloud
 
 fluid.gravitite.name=Molten Gravitite
 fluid.valkyrie.name=Molten Valkyrie Metal
@@ -41,5 +45,9 @@ modifier.reach.name=Reach
 modifier.reach.desc=§oAngelic arms!§r\nWhilst holding this tool, you can reach further.
 modifier.swetty.name=Swetty
 modifier.swetty.desc=§oEww, gooey!§r\nIt'll wash off.
+modifier.festive.name=Festive
+modifier.festive.desc=§oCandy canes!§r\nLick them in a spear and kill your enemies.
+modifier.cushy.name=Cushy
+modifier.cushy.desc=§oLike a cushion.§r\nSilky, but doesn't hurt much.
 
 tinkersaether.config.title=Tinker's Aether Configuration
