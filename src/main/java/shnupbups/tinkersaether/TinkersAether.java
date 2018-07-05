@@ -30,8 +30,8 @@ import slimeknights.tconstruct.tools.TinkerMaterials;
 @Mod(modid = TinkersAether.modid, name = TinkersAether.name, version = TinkersAether.version, acceptedMinecraftVersions = "[1.12.2]", dependencies = "required-after:mantle;required-after:tconstruct;required-after:aether_legacy;")
 public class TinkersAether {
     public static final String modid = "tinkersaether";
-    public static final String name = "MoreTiC";
-    public static final String version = "1.1.2";
+    public static final String name = "Tinkers Aether";
+    public static final String version = "1.1.3";
 
     @Mod.Instance(modid)
     public static TinkersAether instance;

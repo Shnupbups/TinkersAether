@@ -11,6 +11,8 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import shnupbups.tinkersaether.TinkersAether;
 import shnupbups.tinkersaether.network.MessageExtendedAttack;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
@@ -30,6 +32,7 @@ public class Reach extends AbstractTrait {
 
     //Made a mistake in previous versions... this should fix it!
     @SubscribeEvent
+    @SideOnly(Side.CLIENT)
     public void onPlayerJoin(EntityJoinWorldEvent event) {
         if ((event.getEntity() instanceof EntityPlayer)) {
             EntityPlayer player = (EntityPlayer) event.getEntity();
