@@ -2,6 +2,7 @@ package shnupbups.tinkersaether.modules;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -11,11 +12,13 @@ import shnupbups.tinkersaether.tools.ToolDart;
 import shnupbups.tinkersaether.tools.ToolDartShooter;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.Material;
+import slimeknights.tconstruct.library.modifiers.IModifier;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
 import slimeknights.tconstruct.library.tools.IToolPart;
 import slimeknights.tconstruct.library.tools.Pattern;
 import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.library.tools.ToolPart;
+import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.TinkerTools;
 
 import java.util.ArrayList;
@@ -93,13 +96,14 @@ public class ModuleTools {
 
         TinkersAether.logger.info("Tools Module - Stencil Crafting Registered");
 
-        /*// for dart shooter
-        // TODO add modifier jsons
+        // for darts and dart shooters
         for (IModifier modifier: new IModifier[] {
                 TinkerModifiers.modBaneOfArthopods,
                 TinkerModifiers.modBeheading,
                 TinkerModifiers.modDiamond,
                 TinkerModifiers.modEmerald,
+                TinkerModifiers.modFiery,
+                TinkerModifiers.modFins,
                 TinkerModifiers.modGlowing,
                 TinkerModifiers.modHaste,
                 TinkerModifiers.modKnockback,
@@ -118,7 +122,7 @@ public class ModuleTools {
                     new ResourceLocation(TinkersAether.modid, "models/item/modifiers/"+modifier.getIdentifier()));
         }
 
-        TinkersAether.logger.info("Tools Module - Modifier Models Registered");*/
+        TinkersAether.logger.info("Tools Module - Modifier Models Registered");
 
         TinkersAether.logger.info("Tools Module - End ItemInit");
     }

@@ -48,9 +48,9 @@ public class ModuleBase {
     public static final Material aercloudCold = Materials.mat("aercloudCold", 0xAAAAAA);
     public static final Material aercloudGold = Materials.mat("aercloudGold", 0xFFF1A1);
 
-    public static final TAItem valkyrieIngot = new TAItem("valkyrie_ingot");
+    public static final TAItem valkyrieIngot = new TAItem("valkyrie_ingot").setBeaconPayment();
     public static final TAItem valkyrieNugget = new TAItem("valkyrie_nugget");
-    public static final TABlock valkyrieBlock = new TABlock("valkyrie_block", net.minecraft.block.material.Material.IRON);
+    public static final TABlock valkyrieBlock = new TABlock("valkyrie_block", net.minecraft.block.material.Material.IRON).setBeaconBase();
 
     public static final TAItem swetCrystal = new TAItem("swet_crystal");
 

@@ -1,0 +1,6 @@
+{
+  "textures": {
+    "dart": "tinkersaether:items/dart/mod_smite",
+    "dart_shooter": "tinkersaether:items/dart_shooter/mod_smite"
+  }
+}
