@@ -1,6 +1,6 @@
 package shnupbups.tinkersaether.traits;
 
-import com.legacy.aether.items.ItemsAether;
+import com.legacy.aether.mc1122.items.ItemsAether;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;

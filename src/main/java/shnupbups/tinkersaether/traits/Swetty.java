@@ -1,6 +1,6 @@
 package shnupbups.tinkersaether.traits;
 
-import com.legacy.aether.entities.passive.mountable.EntitySwet;
+import com.legacy.aether.mc1122.entities.passive.mountable.EntitySwet;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;

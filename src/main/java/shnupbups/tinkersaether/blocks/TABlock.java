@@ -1,6 +1,6 @@
 package shnupbups.tinkersaether.blocks;
 
-import com.legacy.aether.registry.creative_tabs.AetherCreativeTabs;
+import com.legacy.aether.mc1122.registry.creative_tabs.AetherCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
