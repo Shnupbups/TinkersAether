@@ -1,10 +1,10 @@
 package shnupbups.tinkersaether.tools;
 
 import com.google.common.collect.ImmutableList;
-import com.legacy.aether.mc1122.entities.projectile.darts.EntityDartEnchanted;
-import com.legacy.aether.mc1122.entities.projectile.darts.EntityDartGolden;
-import com.legacy.aether.mc1122.entities.projectile.darts.EntityDartPoison;
-import com.legacy.aether.mc1122.items.ItemsAether;
+import com.legacy.aether.entities.projectile.darts.EntityDartEnchanted;
+import com.legacy.aether.entities.projectile.darts.EntityDartGolden;
+import com.legacy.aether.entities.projectile.darts.EntityDartPoison;
+import com.legacy.aether.items.ItemsAether;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

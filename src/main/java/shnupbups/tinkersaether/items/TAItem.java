@@ -1,6 +1,6 @@
 package shnupbups.tinkersaether.items;
 
-import com.legacy.aether.mc1122.registry.creative_tabs.AetherCreativeTabs;
+import com.legacy.aether.registry.creative_tabs.AetherCreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import shnupbups.tinkersaether.TinkersAether;

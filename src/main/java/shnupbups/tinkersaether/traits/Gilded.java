@@ -1,8 +1,8 @@
 package shnupbups.tinkersaether.traits;
 
-import com.legacy.aether.mc1122.blocks.BlocksAether;
-import com.legacy.aether.mc1122.blocks.util.EnumLogType;
-import com.legacy.aether.mc1122.items.ItemsAether;
+import com.legacy.aether.blocks.BlocksAether;
+import com.legacy.aether.blocks.util.EnumLogType;
+import com.legacy.aether.items.ItemsAether;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;

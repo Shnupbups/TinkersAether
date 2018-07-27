@@ -27,11 +27,11 @@ import shnupbups.tinkersaether.proxy.CommonProxy;
 import slimeknights.tconstruct.library.materials.BowMaterialStats;
 import slimeknights.tconstruct.tools.TinkerMaterials;
 
-@Mod(modid = TinkersAether.modid, name = TinkersAether.name, version = TinkersAether.version, acceptedMinecraftVersions = "[1.12.2]", dependencies = "required-after:mantle;required-after:tconstruct;required-after:aether_legacy@[1.12.2-v3.1,);")
+@Mod(modid = TinkersAether.modid, name = TinkersAether.name, version = TinkersAether.version, acceptedMinecraftVersions = "[1.12.2]", dependencies = "required-after:mantle;required-after:tconstruct;required-after:aether_legacy@[1.12.2-v3.2,);")
 public class TinkersAether {
     public static final String modid = "tinkersaether";
     public static final String name = "Tinkers Aether";
-    public static final String version = "1.1.5";
+    public static final String version = "1.1.6";
 
     @Mod.Instance(modid)
     public static TinkersAether instance;
