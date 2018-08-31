@@ -4,9 +4,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.SPacketEntityVelocity;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-public class Launching extends AbstractTrait {
+public class Launching extends TATrait {
 
     public static final Launching launching = new Launching();
 

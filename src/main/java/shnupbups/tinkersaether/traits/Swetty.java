@@ -6,9 +6,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-public class Swetty extends AbstractTrait {
+public class Swetty extends TATrait {
 
     public static final Swetty swetty = new Swetty();
 

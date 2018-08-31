@@ -4,10 +4,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolBuilder;
 
-public class Cushy extends AbstractTrait {
+public class Cushy extends TATrait {
     public static final Cushy cushy = new Cushy();
 
     public Cushy() {

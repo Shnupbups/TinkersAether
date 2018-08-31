@@ -21,6 +21,7 @@ import shnupbups.tinkersaether.misc.OreDict;
 import shnupbups.tinkersaether.traits.*;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.library.events.TinkerRegisterEvent;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.smeltery.CastingRecipe;
 import slimeknights.tconstruct.tools.TinkerTools;
@@ -38,15 +39,22 @@ public class ModuleBase {
 
     public static final Material skyroot = Materials.mat("skyroot", 0x6C633E);
     public static final Material holystone = Materials.mat("holystone", 0xA8AAA8);
-    public static final Material goldenAmber = Materials.mat("goldenamber", 0xFFE41C);
+    public static final Material goldenAmber = Materials.mat("golden_amber", 0xFFE41C);
     public static final Material zanite = Materials.mat("zanite", 0x6611DD);
     public static final Material gravitite = Materials.mat("gravitite", 0xCC55AA);
     public static final Material valkyrie = Materials.mat("valkyrie", 0xEEEEDD);
     public static final Material swet = Materials.mat("swet", 0x29A6D9);
-    public static final Material candycane = Materials.mat("candycane", 0xFF3333);
-    public static final Material aercloudBlue = Materials.mat("aercloudBlue", 0x99B2C2);
-    public static final Material aercloudCold = Materials.mat("aercloudCold", 0xAAAAAA);
-    public static final Material aercloudGold = Materials.mat("aercloudGold", 0xFFF1A1);
+    public static final Material candyCane = Materials.mat("candy_cane", 0xFF3333);
+    public static final Material aercloudBlue = Materials.mat("aercloud_blue", 0x99B2C2);
+    public static final Material aercloudCold = Materials.mat("aercloud_cold", 0xAAAAAA);
+	public static final Material aercloudGold = Materials.mat("aercloud_gold", 0xFFF1A1);
+	public static final Material icestone = Materials.mat("icestone", 0x99999F);
+
+	public static final Material skyrootLeaf = Materials.mat("skyroot_leaf", 0xBFFF5F);
+	public static final Material goldenOakLeaf = Materials.mat("golden_oak_leaf", 0xEAF84F);
+	public static final Material crystalLeaf = Materials.mat("crystal_leaf", 0x29AAD9);
+	public static final Material holidayLeaf = Materials.mat("holiday_leaf", 0xC7A0EB);
+	public static final Material goldenFeather = Materials.mat("golden_feather", 0xFFF25C);
 
     public static final TAItem valkyrieIngot = new TAItem("valkyrie_ingot").setBeaconPayment();
     public static final TAItem valkyrieNugget = new TAItem("valkyrie_nugget");
@@ -68,7 +76,7 @@ public class ModuleBase {
             skyroot.addItem("stickSkyroot", 1, Material.VALUE_Shard);
             skyroot.addItem("plankSkyroot", 1, Material.VALUE_Ingot);
             skyroot.addItem("logSkyroot", 1, Material.VALUE_Ingot * 4);
-            skyroot.addTrait(Rooted.rooted, MaterialTypes.HEAD);
+            skyroot.addTrait(Skyrooted.skyrooted, MaterialTypes.HEAD);
             skyroot.addTrait(ecological, MaterialTypes.HEAD);
             skyroot.addTrait(ecological);
             MaterialIntegration skyrootMi = new MaterialIntegration(skyroot).setRepresentativeItem("plankSkyroot");
@@ -122,7 +130,7 @@ public class ModuleBase {
             TinkerRegistry.integrate(gravititeMi).preInit();
         }
 
-        if(TAConfig.goldenamber) {
+        if(TAConfig.goldenAmber) {
             TinkerRegistry.addMaterialStats(goldenAmber,
                     new HeadMaterialStats(300, 1.50f, 7.20f, STONE),
                     new HandleMaterialStats(0.7f, 40),
@@ -169,18 +177,18 @@ public class ModuleBase {
             TinkerRegistry.integrate(swetMi).preInit();
         }
 
-        if(TAConfig.candycane) {
-            TinkerRegistry.addMaterialStats(candycane,
+        if(TAConfig.candyCane) {
+            TinkerRegistry.addMaterialStats(candyCane,
                     new HeadMaterialStats(250, 2.5f, 5.0f, STONE),
                     new HandleMaterialStats(1.2f, -120),
                     new ExtraMaterialStats(120),
                     TinkersAether.plzNo);
-            candycane.setCraftable(true).setCastable(false);
-            candycane.addItem("candyCane", 1, Material.VALUE_Ingot);
-            candycane.addTrait(Festive.festive);
-            candycane.addTrait(tasty);
-            MaterialIntegration candycaneMi = new MaterialIntegration(candycane).setRepresentativeItem("candyCane");
-            TinkerRegistry.integrate(candycaneMi).preInit();
+            candyCane.setCraftable(true).setCastable(false);
+            candyCane.addItem("candyCane", 1, Material.VALUE_Ingot);
+            candyCane.addTrait(Festive.festive);
+            candyCane.addTrait(tasty);
+            MaterialIntegration candyCaneMi = new MaterialIntegration(candyCane).setRepresentativeItem("candyCane");
+            TinkerRegistry.integrate(candyCaneMi).preInit();
         }
 
         if(TAConfig.aercloudCold) {
@@ -224,6 +232,59 @@ public class ModuleBase {
             TinkerRegistry.integrate(aercloudGoldMi).preInit();
         }
 
+		if(TAConfig.icestone) {
+			TinkerRegistry.addMaterialStats(icestone,
+					new HeadMaterialStats(250, 4.20f, 3.50f, IRON),
+					new HandleMaterialStats(0.50f, -20),
+					new ExtraMaterialStats(40),
+					TinkersAether.plzNo);
+			icestone.setCraftable(true).setCastable(false);
+			icestone.addItem("icestone", 1, Material.VALUE_Ingot);
+			icestone.addTrait(Refrigeration.refrigeration);
+			MaterialIntegration icestoneMi = new MaterialIntegration(icestone).setRepresentativeItem("icestone");
+			TinkerRegistry.integrate(icestoneMi).preInit();
+		}
+
+		if(TAConfig.skyrootLeaf) {
+			TinkerRegistry.addMaterialStats(skyrootLeaf, new FletchingMaterialStats(0.5f, 1.6f));
+			skyrootLeaf.setCraftable(true).setCastable(false);
+			skyrootLeaf.addItem("treeLeavesSkyroot", 1, Material.VALUE_Shard);
+			MaterialIntegration skyrootLeafMi = new MaterialIntegration(skyrootLeaf).setRepresentativeItem("treeLeavesSkyroot");
+			TinkerRegistry.integrate(skyrootLeafMi).preInit();
+		}
+
+		if(TAConfig.goldenOakLeaf) {
+			TinkerRegistry.addMaterialStats(goldenOakLeaf, new FletchingMaterialStats(0.7f, 1.7f));
+			goldenOakLeaf.setCraftable(true).setCastable(false);
+			goldenOakLeaf.addItem("treeLeavesGoldenOak", 1, Material.VALUE_Shard);
+			MaterialIntegration goldenOakLeafMi = new MaterialIntegration(goldenOakLeaf).setRepresentativeItem("treeLeavesGoldenOak");
+			TinkerRegistry.integrate(goldenOakLeafMi).preInit();
+		}
+
+		if(TAConfig.crystalLeaf) {
+			TinkerRegistry.addMaterialStats(crystalLeaf, new FletchingMaterialStats(0.8f, 2f));
+			crystalLeaf.setCraftable(true).setCastable(false);
+			crystalLeaf.addItem("treeLeavesCrystal", 1, Material.VALUE_Shard);
+			MaterialIntegration crystalLeafMi = new MaterialIntegration(crystalLeaf).setRepresentativeItem("treeLeavesCrystal");
+			TinkerRegistry.integrate(crystalLeafMi).preInit();
+		}
+
+		if(TAConfig.holidayLeaf) {
+			TinkerRegistry.addMaterialStats(holidayLeaf, new FletchingMaterialStats(0.9f, 1.8f));
+			holidayLeaf.setCraftable(true).setCastable(false);
+			holidayLeaf.addItem("treeLeavesHoliday", 1, Material.VALUE_Shard);
+			MaterialIntegration holidayLeafMi = new MaterialIntegration(holidayLeaf).setRepresentativeItem("treeLeavesHoliday");
+			TinkerRegistry.integrate(holidayLeafMi).preInit();
+		}
+
+		if(TAConfig.goldenFeather) {
+			TinkerRegistry.addMaterialStats(goldenFeather, new FletchingMaterialStats(1.0f, 2f));
+			goldenFeather.setCraftable(true).setCastable(false);
+			goldenFeather.addItem("featherGold", 1, Material.VALUE_Ingot);
+			MaterialIntegration goldenFeatherMi = new MaterialIntegration(goldenFeather).setRepresentativeItem("featherGold");
+			TinkerRegistry.integrate(goldenFeatherMi).preInit();
+		}
+
         TinkersAether.logger.info("Base Module - Materials Registered");
 
         TinkersAether.logger.info("Base Module - End PreInit");
@@ -246,6 +307,13 @@ public class ModuleBase {
             TinkersAether.logger.info("Base Module - Gravitite Stuffs Registered");
         }
     }
+
+    @SubscribeEvent
+	public void disableOreSmelting(TinkerRegisterEvent.MeltingRegisterEvent event) {
+    	if(event.getRecipe().input.getInputs().contains(MiscUtils.stackFromOreDict("oreGravitite"))) {
+    		event.setCanceled(!TAConfig.gravititeOreMelt);
+		}
+	}
 
     @SubscribeEvent
     public void registerRecipes(RegistryEvent.Register<IRecipe> event) {

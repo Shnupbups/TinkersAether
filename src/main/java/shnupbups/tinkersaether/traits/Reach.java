@@ -15,12 +15,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import shnupbups.tinkersaether.TinkersAether;
 import shnupbups.tinkersaether.network.MessageExtendedAttack;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 import java.util.List;
 import java.util.UUID;
 
-public class Reach extends AbstractTrait {
+public class Reach extends TATrait {
     public static final Reach reach = new Reach();
 
     public static final AttributeModifier reachModifier = new AttributeModifier(UUID.fromString("df6eabe7-6947-4a56-9099-002f90370708"), "Tinkers Aether Reach Modifier", 5.0D, 0);

@@ -6,12 +6,11 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import shnupbups.tinkersaether.misc.MiscUtils;
 import slimeknights.tconstruct.library.Util;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 import java.util.List;
 
-public class Zany extends AbstractTrait {
+public class Zany extends TATrait {
     public static final Zany zany = new Zany();
 
     public Zany() {

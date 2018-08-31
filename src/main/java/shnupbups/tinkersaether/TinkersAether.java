@@ -31,7 +31,7 @@ import slimeknights.tconstruct.tools.TinkerMaterials;
 public class TinkersAether {
     public static final String modid = "tinkersaether";
     public static final String name = "Tinkers Aether";
-    public static final String version = "1.1.6";
+    public static final String version = "1.2.0";
 
     @Mod.Instance(modid)
     public static TinkersAether instance;
@@ -69,6 +69,12 @@ public class TinkersAether {
         if(TAConfig.skyroot) {
             MiscUtils.displace(TinkerMaterials.wood.getIdentifier()); // Skyroot needs priority
         }
+		if(TAConfig.skyrootLeaf||TAConfig.goldenOakLeaf||TAConfig.crystalLeaf||TAConfig.holidayLeaf) {
+			MiscUtils.displace(TinkerMaterials.leaf.getIdentifier()); // Leaves need priority
+		}
+		if(TAConfig.goldenFeather) {
+			MiscUtils.displace(TinkerMaterials.feather.getIdentifier()); // Golden Feather needs priority
+		}
     }
 
     @Mod.EventHandler

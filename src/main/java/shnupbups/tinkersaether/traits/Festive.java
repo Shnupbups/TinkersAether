@@ -7,9 +7,8 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-public class Festive extends AbstractTrait {
+public class Festive extends TATrait {
     public static final Festive festive = new Festive();
 
     public Festive() {

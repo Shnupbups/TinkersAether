@@ -2,7 +2,6 @@ package shnupbups.tinkersaether.traits;
 
 import com.legacy.aether.entities.block.EntityFloatingBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
@@ -10,11 +9,9 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
-import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
-public class Antigrav extends AbstractTrait{
+public class Antigrav extends TATrait{
     public static final Antigrav antigrav = new Antigrav();
 
     public Antigrav() {
@@ -24,7 +21,6 @@ public class Antigrav extends AbstractTrait{
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void floatBlock(PlayerInteractEvent.RightClickBlock event) {
-        NBTTagCompound nbt = TagUtil.getTagSafe(event.getItemStack());
         World world = event.getWorld();
         BlockPos pos = event.getPos();
         ItemStack heldItem = event.getItemStack();
@@ -34,7 +30,6 @@ public class Antigrav extends AbstractTrait{
                 || !isToolWithTrait(heldItem)
                 || ToolHelper.getCurrentDurability(event.getItemStack()) < 4)
             return;
-        EntityFloatingBlock entity = new EntityFloatingBlock(world, pos, world.getBlockState(pos));
         if ((heldItem.getDestroySpeed(world.getBlockState(pos)) > 1.0f || ForgeHooks.isToolEffective(world, pos, heldItem)) && world.isAirBlock(pos.up())) {
             if (world.getTileEntity(pos) != null || world.getBlockState(pos).getBlockHardness(world, pos) == -1.0F) {
                 return;

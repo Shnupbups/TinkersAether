@@ -11,19 +11,17 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-public class Rooted extends AbstractTrait {
-    public static final Rooted rooted = new Rooted();
+public class Skyrooted extends TATrait {
+    public static final Skyrooted skyrooted = new Skyrooted();
 
-    public Rooted() {
-        super("rooted",0x6C633E);
+    public Skyrooted() {
+        super("skyrooted",0x6C633E);
     }
 
     @Override
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase entity, boolean wasEffective) {
         if(entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer)entity;
             if(tool.getDestroySpeed(world.getBlockState(pos)) > 1.0f || ForgeHooks.isToolEffective(world, pos, tool)) {
                 if(state.getProperties().containsKey(PropertyBool.create(Aether.doubleDropNotifier()))) {
                     boolean dropDouble = state.getValue(PropertyBool.create(Aether.doubleDropNotifier())).equals(true);

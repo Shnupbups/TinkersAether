@@ -30,7 +30,7 @@ public class TAConfig extends Configuration {
 
     @Config.Comment("Whether Golden Amber is enabled or not.")
     @Config.RequiresMcRestart
-    public static boolean goldenamber = true;
+    public static boolean goldenAmber = true;
 
     @Config.Comment("Whether Valkyrie Metal is enabled or not.")
     @Config.RequiresMcRestart
@@ -42,7 +42,7 @@ public class TAConfig extends Configuration {
 
     @Config.Comment("Whether Candy Cane is enabled or not.")
     @Config.RequiresMcRestart
-    public static boolean candycane = true;
+    public static boolean candyCane = true;
 
     @Config.Comment("Whether Blue Aercloud is enabled or not.")
     @Config.RequiresMcRestart
@@ -56,13 +56,41 @@ public class TAConfig extends Configuration {
     @Config.RequiresMcRestart
     public static boolean aercloudGold = true;
 
+	@Config.Comment("Whether Icestone is enabled or not.")
+	@Config.RequiresMcRestart
+	public static boolean icestone = true;
+
+	@Config.Comment("Whether Skyroot Leaf is enabled or not.")
+	@Config.RequiresMcRestart
+	public static boolean skyrootLeaf = true;
+
+	@Config.Comment("Whether Golden Oak Leaf is enabled or not.")
+	@Config.RequiresMcRestart
+	public static boolean goldenOakLeaf = true;
+
+	@Config.Comment("Whether Holiday Leaf is enabled or not.")
+	@Config.RequiresMcRestart
+	public static boolean holidayLeaf = true;
+
+	@Config.Comment("Whether Crystal Leaf is enabled or not.")
+	@Config.RequiresMcRestart
+	public static boolean crystalLeaf = true;
+
+	@Config.Comment("Whether Golden Feather is enabled or not.")
+	@Config.RequiresMcRestart
+	public static boolean goldenFeather = true;
+
     @Config.Comment("Whether Darts and Dart Shooters are enabled or not.")
     @Config.RequiresMcRestart
     public static boolean darts = true;
 
     @Config.Comment("Whether Gravitite can be used to make a tool forge.")
-    @Config.RequiresMcRestart
-    public static boolean gravititeForge = true;
+	@Config.RequiresMcRestart
+	public static boolean gravititeForge = true;
+
+	@Config.Comment("Whether Gravitite Ore can be melted in the smeltery.")
+	@Config.RequiresMcRestart
+	public static boolean gravititeOreMelt = true;
 
     @Config.Comment("Whether Valkyrie Metal (if enabled) can be used to make a tool forge.")
     @Config.RequiresMcRestart

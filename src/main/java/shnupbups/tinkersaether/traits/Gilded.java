@@ -10,9 +10,8 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-public class Gilded extends AbstractTrait {
+public class Gilded extends TATrait {
     public static final Gilded gilded = new Gilded();
 
     public Gilded() {
