@@ -3,7 +3,7 @@
 Tinker's Aether is an addon for Tinker's Construct which adds support for materials from Aether Legacy.
 
 ## Materials
-Current materials include:
+Current tool materials include:
 <ul>
   <li>Skyroot</li>
   <li>Holystone</li>
@@ -16,9 +16,17 @@ Current materials include:
   <li>Cold Aercloud (as of 1.1.2)</li>
   <li>Blue Aercloud (as of 1.1.2)</li>
   <li>Golden Aercloud (as of 1.1.2)</li>
+  <li>Icestone (as of 1.2.0)</li>
 </ul>
 Each of these that have corresponding tools in Aether Legacy have traits somewhat equivalent to the abilities already existent in those.
-
+Current fletching materials include:
+<ul>
+  <li>Skyroot Leaf (as of 1.2.0</li>
+  <li>Golden Oak Leaf (as of 1.2.0)</li>
+  <li>Crystal Leaf (as of 1.2.0)</li>
+  <li>Holiday Leaf (as of 1.2.0)</li>
+  <li>Golden Feather (as of 1.2.0)</li>
+</ul>
 Materials can be individually disabled in the config as of Version 1.0.2.
 
 ## Dart Shooter
