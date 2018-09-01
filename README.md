@@ -19,6 +19,7 @@ Current tool materials include:
   <li>Icestone (as of 1.2.0)</li>
 </ul>
 Each of these that have corresponding tools in Aether Legacy have traits somewhat equivalent to the abilities already existent in those.
+
 Current fletching materials include:
 <ul>
   <li>Skyroot Leaf (as of 1.2.0</li>
