@@ -48,10 +48,6 @@ public class TAConfig extends Configuration {
     @Config.RequiresMcRestart
     public static boolean aercloudBlue = true;
 
-    @Config.Comment("Whether Cold Aercloud is enabled or not.")
-    @Config.RequiresMcRestart
-    public static boolean aercloudCold = true;
-
     @Config.Comment("Whether Gold Aercloud is enabled or not.")
     @Config.RequiresMcRestart
     public static boolean aercloudGold = true;
