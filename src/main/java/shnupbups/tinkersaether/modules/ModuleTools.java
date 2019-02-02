@@ -28,6 +28,8 @@ import java.util.List;
 @Mod.EventBusSubscriber(modid = TinkersAether.modid)
 public class ModuleTools {
 
+	public ModuleTools instance = new ModuleTools();
+
     public static ToolDartShooter dartShooter;
     public static ToolDart dart;
 

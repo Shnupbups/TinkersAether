@@ -31,7 +31,7 @@ import static slimeknights.tconstruct.tools.TinkerTraits.*;
 
 @Mod.EventBusSubscriber(modid = TinkersAether.modid)
 public class ModuleBase {
-    public static ModuleBase base = new ModuleBase();
+    public static ModuleBase instance = new ModuleBase();
 
     public ModuleBase() {
         MinecraftForge.EVENT_BUS.register(this);
@@ -316,7 +316,7 @@ public class ModuleBase {
 	}
 
     @SubscribeEvent
-    public void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+    public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
         IForgeRegistry<IRecipe> registry = event.getRegistry();
         if(TAConfig.gravititeForge) {
             TinkerTools.registerToolForgeBlock(registry, "blockEnchantedGravitite");
@@ -333,8 +333,8 @@ public class ModuleBase {
         if(TAConfig.valkyrie) {
             registry.register(valkyrieIngot);
             registry.register(valkyrieNugget);
-            Item valkBlock = new ItemBlock(valkyrieBlock).setRegistryName(valkyrieBlock.getRegistryName()).setUnlocalizedName(valkyrieBlock.getUnlocalizedName());
-            registry.register(valkBlock);
+			Item valkBlock = new ItemBlock(valkyrieBlock).setRegistryName(valkyrieBlock.getRegistryName()).setUnlocalizedName(valkyrieBlock.getUnlocalizedName());
+			registry.register(valkBlock);
             TinkersAether.proxy.registerItemRenderer(valkyrieIngot, 0, "valkyrie_ingot");
             TinkersAether.proxy.registerItemRenderer(valkyrieNugget, 0, "valkyrie_nugget");
             TinkersAether.proxy.registerItemRenderer(valkBlock,0,"valkyrie_block");
@@ -352,7 +352,7 @@ public class ModuleBase {
     }
 
     @SubscribeEvent
-    public static void registerBlocks(RegistryEvent.Register<Block> event) {
+    public void registerBlocks(RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> registry = event.getRegistry();
         if(TAConfig.valkyrie) {
             valkyrieBlock.setHarvestLevel("pickaxe",3);

@@ -4,6 +4,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -20,6 +21,7 @@ import org.apache.logging.log4j.Logger;
 import shnupbups.tinkersaether.config.TAConfig;
 import shnupbups.tinkersaether.entities.EntityDart;
 import shnupbups.tinkersaether.misc.MiscUtils;
+import shnupbups.tinkersaether.modules.ModuleArmour;
 import shnupbups.tinkersaether.modules.ModuleBase;
 import shnupbups.tinkersaether.network.HandlerExtendedAttack;
 import shnupbups.tinkersaether.network.MessageExtendedAttack;
@@ -27,7 +29,7 @@ import shnupbups.tinkersaether.proxy.CommonProxy;
 import slimeknights.tconstruct.library.materials.BowMaterialStats;
 import slimeknights.tconstruct.tools.TinkerMaterials;
 
-@Mod(modid = TinkersAether.modid, name = TinkersAether.name, version = TinkersAether.version, acceptedMinecraftVersions = "[1.12.2]", dependencies = "required-after:mantle;required-after:tconstruct;required-after:aether_legacy@[1.12.2-v3.2,);")
+@Mod(modid = TinkersAether.modid, name = TinkersAether.name, version = TinkersAether.version, acceptedMinecraftVersions = "[1.12.2]", dependencies = "required-after:mantle;required-after:tconstruct;required-after:aether_legacy@[1.12.2-v3.2,);after:conarm;")
 public class TinkersAether {
     public static final String modid = "tinkersaether";
     public static final String name = "Tinkers Aether";
@@ -45,6 +47,8 @@ public class TinkersAether {
 
     public static BowMaterialStats plzNo = new BowMaterialStats(0.2f, 0.4f, -1f);
 
+    public boolean armourActive = false;
+
     public TinkersAether() {
         super();
         MinecraftForge.EVENT_BUS.register(this);
@@ -52,7 +56,12 @@ public class TinkersAether {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        ModuleBase.base.preInit();
+    	if(Loader.isModLoaded("conarm")) {
+    		armourActive = true;
+		}
+
+        ModuleBase.instance.preInit();
+        if(armourActive) ModuleArmour.instance.preInit();
     }
 
     @Mod.EventHandler
@@ -64,7 +73,8 @@ public class TinkersAether {
             proxy.initToolGuis();
         }
 
-        ModuleBase.base.init();
+        ModuleBase.instance.init();
+		if(armourActive) ModuleArmour.instance.init();
 
         if(TAConfig.skyroot) {
             MiscUtils.displace(TinkerMaterials.wood.getIdentifier()); // Skyroot needs priority
@@ -79,7 +89,8 @@ public class TinkersAether {
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        ModuleBase.base.postInit();
+        ModuleBase.instance.postInit();
+		if(armourActive) ModuleArmour.instance.postInit();
     }
 
     @SubscribeEvent
