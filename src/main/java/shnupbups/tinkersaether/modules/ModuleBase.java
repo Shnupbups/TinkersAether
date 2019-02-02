@@ -328,7 +328,7 @@ public class ModuleBase {
     }
 
     @SubscribeEvent
-    public static void registerItems(RegistryEvent.Register<Item> event) {
+    public void registerItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
         if(TAConfig.valkyrie) {
             registry.register(valkyrieIngot);
@@ -352,7 +352,7 @@ public class ModuleBase {
     }
 
     @SubscribeEvent
-    public static void registerBlocks(RegistryEvent.Register<Block> event) {
+    public void registerBlocks(RegistryEvent.Register<Block> event) {
         IForgeRegistry<Block> registry = event.getRegistry();
         if(TAConfig.valkyrie) {
             valkyrieBlock.setHarvestLevel("pickaxe",3);
