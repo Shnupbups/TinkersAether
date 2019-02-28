@@ -3,7 +3,7 @@
   "modid": "tinkersaether",
   "name": "Tinker's Aether",
   "description": "Adds Aether materials and stuff to Tinker's Construct.",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "mcversion": "${mcversion}",
   "url": "https://minecraft.curseforge.com/projects/tinkers-aether",
   "updateUrl": "",
