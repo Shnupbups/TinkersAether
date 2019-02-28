@@ -19,7 +19,7 @@ public class HandlerExtendedAttack implements IMessageHandler<MessageExtendedAtt
             public void run() {
                 Entity entity = player.getEntityWorld().getEntityByID(message.getEntityId());
                 ItemStack stack = player.getHeldItemMainhand();
-                if(stack.isEmpty() || !(stack.getItem() instanceof TinkerToolCore)) {
+                if(stack.isEmpty() || !(stack.getItem() instanceof TinkerToolCore) || entity == null) {
                     return;
                 }
                 if(ToolHelper.getTraits(stack).contains(Reach.reach)) {
