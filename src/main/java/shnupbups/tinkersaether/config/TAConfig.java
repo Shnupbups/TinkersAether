@@ -96,6 +96,14 @@ public class TAConfig extends Configuration {
     @Config.RequiresMcRestart
     public static boolean valkyrieForge = true;
 
+	@Config.Comment("Whether Valkyrie Metal (if enabled) can be found in Silver Dungeon chests.")
+	@Config.RequiresMcRestart
+	public static boolean valkyrieDungeonChest = true;
+
+	@Config.Comment("Whether Valkyrie Metal (if enabled) can be created by enchanting Victory Medals.")
+	@Config.RequiresMcRestart
+	public static boolean valkyrieMedalEnchant = true;
+
     @Mod.EventBusSubscriber(modid = TinkersAether.modid)
     private static class EventHandler {
         @SubscribeEvent

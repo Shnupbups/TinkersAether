@@ -1,10 +1,20 @@
 package shnupbups.tinkersaether.modules;
 
+import com.legacy.aether.api.enchantments.AetherEnchantment;
+import com.legacy.aether.items.ItemsAether;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.storage.loot.LootEntry;
+import net.minecraft.world.storage.loot.LootEntryTable;
+import net.minecraft.world.storage.loot.LootPool;
+import net.minecraft.world.storage.loot.RandomValueRange;
+import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -361,4 +371,26 @@ public class ModuleBase {
         }
         TinkersAether.logger.info("Base Module - Blocks Registered");
     }
+
+	@SubscribeEvent
+	public void onRegisterEnchantmentEvent(RegistryEvent.Register<AetherEnchantment> event) {
+		IForgeRegistry<AetherEnchantment> registry = event.getRegistry();
+    	if(TAConfig.valkyrie&&TAConfig.valkyrieMedalEnchant) {
+			registry.register(new AetherEnchantment(new ItemStack(ItemsAether.victory_medal),new ItemStack(valkyrieNugget),250));
+		}
+		TinkersAether.logger.info("Base Module - Enchantment Recipes Registered");
+	}
+
+	@SubscribeEvent
+	public void onLootTableLoad(LootTableLoadEvent event) {
+    	if(TAConfig.valkyrie&&TAConfig.valkyrieDungeonChest) {
+			if(event.getName().toString().equals("aether_legacy:chests/silver_dungeon_chest")) {
+				LootEntry entry = new LootEntryTable(new ResourceLocation(TinkersAether.modid,"inject/silver_dungeon_chest"),100,10,new LootCondition[0], "ta_inject_entry");
+				event.getTable().addPool(new LootPool(new LootEntry[]{entry},new LootCondition[0],new RandomValueRange(1),new RandomValueRange(0,1),"ta_inject_pool"));
+			} else if(event.getName().toString().equals("aether_legacy:chests/silver_dungeon_reward")) {
+				LootEntry entry = new LootEntryTable(new ResourceLocation(TinkersAether.modid,"inject/silver_dungeon_reward"),100,0,new LootCondition[0], "ta_inject_entry");
+				event.getTable().addPool(new LootPool(new LootEntry[]{entry},new LootCondition[0],new RandomValueRange(1),new RandomValueRange(0,1),"ta_inject_pool"));
+			}
+		}
+	}
 }
