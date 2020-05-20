@@ -1,0 +1,62 @@
+material.gravitite.name=Gravitit
+material.zanite.name=Zanit
+material.skyroot.name=Himmelswurzel
+material.holystone.name=Heiligstein
+material.golden_amber.name=Goldener Bernstein
+material.valkyrie.name=Walküre
+material.swet.name=Swet
+material.candy_cane.name=Zuckerstange
+material.aercloud_blue.name=Blaue Aerosolwolke
+material.aercloud_cold.name=Kalte Aerosolwolke
+material.aercloud_gold.name=Goldene Aerosolwolke
+material.icestone.name=Eisstein
+
+material.skyroot_leaf.name=Himmelswurzelblätter
+material.golden_oak_leaf.name=Goldene Eichenblätter
+material.crystal_leaf.name=Kristallblätter
+material.holiday_leaf.name=Urlaubsblätter
+material.golden_feather.name=Goldene Feder
+
+fluid.gravitite.name=Geschmolzenes Gravitit
+fluid.valkyrie.name=Geschmolzenes Walküremetall
+
+item.dart_shooter.name=Dartpfeilpistole
+item.dart_shooter.desc=Mit der Dartpfeilpistole oder der Blaspistole kannst Du Dartpfeile mit großer Genauigkeit abschießen - versuche einfach, nicht einzuatmen!
+item.dart.name=Dartpfeil
+item.dart.desc=Die Dartpfeile sind die für Dartpfeilpistolen verwendete Munition. Ein Stapel liefert viele Schüsse, und sie können wie jedes andere Werkzeug modifiziert werden. Sie sind von der Schwerkraft unbeeinflusst, richten aber nur wenig Schaden an.
+
+item.tube.name=Rohr
+item.mouthpiece.name=Mundstück
+item.dart_tip.name=Pfeilppitze
+
+item.swet_crystal.name=Swetkristall
+
+item.valkyrie_nugget.name=Walküre-Metall-Nugget
+item.valkyrie_ingot.name=Walküre-Metallbarren
+tile.valkyrie_block.name=Block aus Walküremetall
+
+modifier.antigrav.name=Antigravitation
+modifier.antigrav.desc=§oSch*** auf Schwerkraft!§r\nLass mit Shift+Rechtsklick effektive Blöcke schweben, braucht 4 Haltbarkeit
+modifier.launching.name=Starten
+modifier.launching.desc=§oAufwärtshaken!§r\nLässt angreifende Kreaturen hoch in die Luft schießen.
+modifier.enlightened.name=Aufgeklärt
+modifier.enlightened.desc=§oDer Lieblingssnack der Götter.§r\nGibt den Blöcken eine Chance von 5%, Ambrosiumscherben fallen zu lassen.
+modifier.skyrooted.name=Himmelgewurzelt
+modifier.skyrooted.desc=§oErstere verdoppeln sich.§r\nExtra Ressourcen aus natürlich erzeugten Ätherblöcken.
+modifier.zany.name=Schräg
+modifier.zany.desc=§oEntropieangetriebene Geschwindigkeit.§r\nDas Werkzeug baut wesentlich schneller ab, wenn es sich abnutzt.
+modifier.zany.extra=Zany Geschwindigkeit: x%s
+modifier.gilded.name=Vergoldet
+modifier.gilded.desc=§oGoldener Bernstein kann aus Goldeichenholz geerntet werden.
+modifier.reach.name=Erreichen
+modifier.reach.desc=§oEngelsarme!§r\nWenn Du dieses Werkzeug hältst, kannst Du weiter greifen.
+modifier.swetty.name=Swetty
+modifier.swetty.desc=§oIgitt, klebrig! Das lässt sich abwaschen.
+modifier.festive.name=Festlich
+modifier.festive.desc=§oZuckerstangen!§r\nLecke sie und töten Sie Ihre Feinde.
+modifier.cushy.name=Kuschelig
+modifier.cushy.desc=§oWie ein Kissen.§r\nSeidig, aber tut nicht sehr weh.
+modifier.refrigeration.name=Kältetechnik
+modifier.refrigeration.desc=§oEin Gefrierschrank in Werkzeugform!§r\nGesammelte Blöcke werden eingefroren.
+
+tinkersaether.config.title=Tinker's Äther-Konfiguration
