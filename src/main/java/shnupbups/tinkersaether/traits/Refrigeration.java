@@ -1,6 +1,6 @@
 package shnupbups.tinkersaether.traits;
 
-import com.legacy.aether.api.AetherAPI;
+import com.gildedgames.the_aether.api.AetherAPI;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.world.BlockEvent;
 

@@ -1,7 +1,7 @@
 package shnupbups.tinkersaether.modules;
 
-import com.legacy.aether.api.enchantments.AetherEnchantment;
-import com.legacy.aether.items.ItemsAether;
+import com.gildedgames.the_aether.api.enchantments.AetherEnchantment;
+import com.gildedgames.the_aether.items.ItemsAether;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;

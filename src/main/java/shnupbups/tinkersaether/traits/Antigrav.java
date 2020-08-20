@@ -1,6 +1,6 @@
 package shnupbups.tinkersaether.traits;
 
-import com.legacy.aether.entities.block.EntityFloatingBlock;
+import com.gildedgames.the_aether.entities.block.EntityFloatingBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -36,7 +36,7 @@ public class Antigrav extends TATrait{
             }
 
             if (!world.isRemote) {
-                EntityFloatingBlock ent = new EntityFloatingBlock(world, pos, world.getBlockState(pos));
+                EntityFloatingBlock ent = new EntityFloatingBlock(world, pos.getX(), pos.getY(), pos.getZ(), world.getBlockState(pos));
                 world.spawnEntity(ent);
                 world.setBlockToAir(pos);
             }

@@ -2,10 +2,10 @@
 {
   "modid": "tinkersaether",
   "name": "Tinker's Aether",
-  "description": "Adds Aether materials and stuff to Tinker's Construct.",
-  "version": "1.3.0",
+  "description": "Adds Aether materials and stuff to Tinkers' Construct.",
+  "version": "1.4.0",
   "mcversion": "${mcversion}",
-  "url": "https://minecraft.curseforge.com/projects/tinkers-aether",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/tinkers-aether",
   "updateUrl": "",
   "authorList": ["Shnupbups"],
   "credits": "",
