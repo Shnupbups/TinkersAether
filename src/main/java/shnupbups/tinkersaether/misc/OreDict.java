@@ -1,7 +1,7 @@
 package shnupbups.tinkersaether.misc;
 
-import com.legacy.aether.blocks.BlocksAether;
-import com.legacy.aether.items.ItemsAether;
+import com.gildedgames.the_aether.blocks.BlocksAether;
+import com.gildedgames.the_aether.items.ItemsAether;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 

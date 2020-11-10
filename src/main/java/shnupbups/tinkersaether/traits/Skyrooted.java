@@ -1,6 +1,6 @@
 package shnupbups.tinkersaether.traits;
 
-import com.legacy.aether.Aether;
+import com.gildedgames.the_aether.Aether;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
